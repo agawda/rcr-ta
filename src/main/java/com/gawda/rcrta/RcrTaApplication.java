@@ -9,5 +9,4 @@ public class RcrTaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RcrTaApplication.class, args);
 	}
-
 }

@@ -1,4 +1,4 @@
-package com.gawda.rcrta.application;
+package com.gawda.rcrta.persistence;
 
 import org.springframework.stereotype.Service;
 
