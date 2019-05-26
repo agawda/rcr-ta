@@ -12,7 +12,7 @@ import spock.lang.Specification
 class RandomStoreTest extends Specification {
 
     @Autowired
-    private RandomStore store
+    private Store store
 
     def "retrieve count from store for given key"(String key) {
         expect:

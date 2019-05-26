@@ -14,9 +14,13 @@ public class RandomStore implements Store {
     private static final int MIN_KEY_VALUE_INCLUSIVE = 1;
     private static final int MAX_KEY_VALUE_EXCLUSIVE = 11;
 
+    private static final int MIN_BOOLEAN_VALUE_INCLUSIVE = 0;
+    private static final int MAX_BOOLEAN_VALUE_EXCLUSIVE = 2;
+
     @Override
     public boolean hasValue(String key) {
-        return false;
+        var value = ThreadLocalRandom.current().nextInt(MIN_BOOLEAN_VALUE_INCLUSIVE, MAX_BOOLEAN_VALUE_EXCLUSIVE);
+        return value != 0;
     }
 
     @Override
