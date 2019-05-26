@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.gawda</groupId>
     <artifactId>rcr-ta</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1.0</version>
     <name>rcr-ta</name>
 
     <properties>
