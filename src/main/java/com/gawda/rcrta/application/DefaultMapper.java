@@ -1,7 +1,6 @@
 package com.gawda.rcrta.application;
 
 import com.gawda.rcrta.domain.Slide;
-import com.gawda.rcrta.persistence.Store;
 import io.vavr.collection.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +15,12 @@ import java.util.function.Function;
 @Service
 public class DefaultMapper implements Mapper {
 
-    private Store store;
+    private StoreProvider storeProvider;
 
     private WordProcessor processor;
 
-    public DefaultMapper(@Autowired Store store, @Autowired WordProcessor processor) {
-        this.store = store;
+    public DefaultMapper(@Autowired StoreProvider storeProvider, @Autowired WordProcessor processor) {
+        this.storeProvider = storeProvider;
         this.processor = processor;
     }
 
@@ -34,13 +33,13 @@ public class DefaultMapper implements Mapper {
                 .filter(Objects::nonNull);
         return slidesFilteredNoDuplicatedWords.toMap(
                 Slide::getWordsCombined,
-                slide -> store.getValue(slide.getWordsCombined())
+                slide -> storeProvider.getValue(slide.getWordsCombined())
         );
     }
 
     private Function<Slide, Slide> filterIncorrectSlides() {
         return slide -> {
-            var isInStore = store.hasValue(slide.getWordsCombined());
+            var isInStore = storeProvider.hasValue(slide.getWordsCombined());
             var hasNoConsumed = slide.hasAllWordsNotConsumed();
             if (isInStore && hasNoConsumed) {
                 return slide.markAllConsumed();
