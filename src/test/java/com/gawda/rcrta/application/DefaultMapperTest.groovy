@@ -12,7 +12,7 @@ import spock.lang.Specification
  */
 class DefaultMapperTest extends Specification {
 
-    def storeMock = Mock(Store)
+    def storeMock = Mock(StoreProvider)
     def processorMock = Mock(WordProcessor)
 
     private Mapper mapper
