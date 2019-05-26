@@ -4,6 +4,7 @@ import com.gawda.rcrta.domain.Word
 import io.vavr.collection.List
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.ActiveProfiles
 import spock.lang.Specification
 
 /**
@@ -11,6 +12,7 @@ import spock.lang.Specification
  * 25/05/2019
  */
 @SpringBootTest
+@ActiveProfiles("test")
 class DefaultWordSplitterTest extends Specification {
 
     @Autowired

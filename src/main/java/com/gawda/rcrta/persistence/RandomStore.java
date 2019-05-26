@@ -1,5 +1,6 @@
 package com.gawda.rcrta.persistence;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -9,6 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * 23/05/2019
  */
 @Service
+@Profile("dev")
 public class RandomStore implements Store {
 
     private static final int MIN_KEY_VALUE_INCLUSIVE = 1;
