@@ -1,0 +1,3 @@
+The requested component is located in a `com.gawda.rcrta.StringMapper` class. There are currently two profiles: `dev` which runs the version with parallel store value retrieval and synchronous one, by default used for testing.
+The profiles can be set using the `application.properties` file via `spring.profiles.active` property. Also the number of threads in
+an executor used for the CompletableFutures is configurable via `executor.thread.pool.size`, by default it's set to 4.
